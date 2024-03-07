@@ -71,7 +71,7 @@ input_prompt = input("Task: ")
 
 result = generate_reponse(
     llm=code_llm,
-    prompt_template=PROMPT_CONTENT,
+    prompt_content=PROMPT_CONTENT,
     retriever=retriever,
     user_prompt=input_prompt,
 )
