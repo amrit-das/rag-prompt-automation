@@ -1,0 +1,7 @@
+langchain==0.1.11
+langchain_community==0.0.27
+langchain_google_genai==0.0.9
+langchain_google_vertexai==0.1.0
+nbformat==5.9.2
+python-dotenv==1.0.1
+Requests==2.31.0
