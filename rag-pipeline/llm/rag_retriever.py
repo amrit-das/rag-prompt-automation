@@ -8,14 +8,15 @@ from langchain.schema.document import Document
 from langchain.text_splitter import Language
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-
+import streamlit as st
 
 EMBEDDING_QPM = 100
 EMBEDDING_NUM_BATCH = 5
 TOP_K_NUM = 3
 
 
-def get_retriever(code_files_urls):
+@st.cache_resource
+def generate_code_strings(code_files_urls):
     code_strings = []
     for i in range(0, len(code_files_urls)):
         if code_files_urls[i].endswith(".ipynb"):
@@ -32,9 +33,12 @@ def get_retriever(code_files_urls):
                 metadata={"url": code_files_urls[i], "file_index": i},
             )
             code_strings.append(doc)
+    return code_strings
 
+
+def get_retriever(code_strings):
     text_splitter = RecursiveCharacterTextSplitter.from_language(
-        language=Language.PYTHON, chunk_size=4000, chunk_overlap=300
+        language=Language.PYTHON, chunk_size=1000, chunk_overlap=150
     )
     texts = text_splitter.split_documents(code_strings)
 

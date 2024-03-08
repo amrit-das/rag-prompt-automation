@@ -19,6 +19,23 @@ GITHUB_REPO = [
 ]
 
 PROMPT_CONTENT = """
+**User Input:** {user_prompt} 
+
+**Task:**  Extract the essential steps involved in the process that the user describes. 
+Focus on simplifying the input into actionable python tasks suitable for automation. 
+List these steps in a sequential manner. Maintain the output format and dont output anything except steps.
+
+**Output Format:**
+
+* STEP1: Use python to - [Action in present tense verb form] 
+* STEP2: Use python to - [Action in present tense verb form]
+* ... 
+
+
+Helpful Response :
+"""
+
+PROMPT_CONTENT_RAG = """
     Role: You are a proficient python developer, specializing in Automation Tasks.
     Task: Respond with the syntactically correct code for to the automation task below. Make sure you follow rules below:
     Rules:
@@ -46,7 +63,7 @@ PROMPT_CONTENT_LLM = """
     4. Make sure to write complete scripts not just outlines.
 
     Task:
-    {question}
+    {user_prompt}
 
     Helpful Response :
     """

@@ -1,8 +1,11 @@
 import nbformat
 import requests
-
+from functools import lru_cache
 
 # Extracts the python code from an .ipynb file from github
+
+
+@lru_cache(maxsize=128)
 def extract_python_code_from_ipynb(github_url, cell_type="code"):
     raw_url = github_url.replace("github.com", "raw.githubusercontent.com").replace(
         "/blob/", "/"
@@ -28,6 +31,7 @@ def extract_python_code_from_ipynb(github_url, cell_type="code"):
 
 
 # Extracts the python code from an .py file from github
+@lru_cache(maxsize=128)
 def extract_python_code_from_py(github_url):
     raw_url = github_url.replace("github.com", "raw.githubusercontent.com").replace(
         "/blob/", "/"
