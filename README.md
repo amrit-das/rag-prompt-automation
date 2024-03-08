@@ -26,7 +26,7 @@ streamlit run main.py
 ```
 
 ## Demo
-[streamlit-main-2024-03-09-00-03-52.webm](https://github.com/amrit-das/rag-prompt-automation/assets/31342979/eff77d21-024d-4872-a386-13b786f13a64)
+[Execution_DEMO.webm](https://github.com/amrit-das/rag-prompt-automation/assets/31342979/eff77d21-024d-4872-a386-13b786f13a64)
 
 
 
