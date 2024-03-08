@@ -78,6 +78,7 @@ if submit:
                         prompt_content=PROMPT_CONTENT_LLM,
                         user_prompt=task,
                     )
+                    st.write(code)
                 else:
                     code = generate_response_rag(
                         llm=code_llm,
@@ -85,4 +86,4 @@ if submit:
                         retriever=retriever,
                         question=task,
                     )
-                st.write(code["result"], code["source_documents"])
+                    st.write(code["result"], code["source_documents"])
